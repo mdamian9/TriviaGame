@@ -1,4 +1,29 @@
 body {
     background-image: url("../images/bg.jpg");
     background-size: 100%;
+    font-size: 18px;
+}
+
+.container {
+    background: black;
+    color: white;
+    width: 60%;
+    height: 250px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 5px;
+}
+
+#header {
+    font-family: 'Fredericka the Great', cursive;
+}
+
+#start-game {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background: white;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 20px
 }
