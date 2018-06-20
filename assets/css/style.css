@@ -18,12 +18,20 @@ body {
     font-family: 'Fredericka the Great', cursive;
 }
 
-#start-game {
+#start-quiz {
     margin-top: 30px;
     margin-bottom: 20px;
     background: white;
     color: black;
-    font-size: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px
+}
+
+#submit-quiz {
+    background: white;
+    color: black;
+    font-size: 18px;
     font-weight: bold;
     padding: 20px
 }
