@@ -8,7 +8,6 @@ body {
     background: black;
     color: white;
     width: 60%;
-    height: 250px;
     margin: 50px auto;
     text-align: center;
     padding: 5px;
@@ -20,7 +19,7 @@ body {
 
 #start-quiz {
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     background: white;
     color: black;
     font-size: 18px;

@@ -114,8 +114,6 @@ $(document).ready(function () {
             $(".container").append('<p>This is question ' + i + '</p>');
         }
 
-
-
         function displayResults() {
 
         };
