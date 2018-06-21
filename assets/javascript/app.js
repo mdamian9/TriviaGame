@@ -110,6 +110,7 @@ $(document).ready(function () {
         console.log("Display")
         var questions = [];
 
+        $("#start-submit").text("Submit");
         for (var i =0; i < quizArr.length; i++) {
             $(".container").append('<p>This is question ' + i + '</p>');
         }
@@ -117,10 +118,12 @@ $(document).ready(function () {
         function displayResults() {
 
         };
+
+        $("#start-submit").on("click", displayResults);
     };
 
 
-    $("#start-quiz").on("click", displayQuiz);
+    $("#start-submit").on("click", displayQuiz);
 
 
 
