@@ -111,17 +111,19 @@ $(document).ready(function () {
 
     function displayQuiz() {
 
-        console.log("Display")
-        var questions = [];
+        // var answers; use an array to push HTML elements?
 
         $("#start-submit").text("Submit");
-        for (var i =0; i < quizArr.length; i++) {
-            $("#inner-container").append('<p>This is question ' + i + '</p>');
+        for (var i = 0; i < quizArr.length; i++) {
+            answers = [];
+            $("#inner-container").append('<p id="questions">' + (i + 1) + ". " + quizArr[i].question + '</p>');
+            $("#inner-container").append('<input type="radio">' + "Answer buttons"); // need to style this and display all answers
         };
 
         function displayResults() {
             $("#inner-container").html('<h1>All done!</h1>');
-            $("#inner-container").append("Correct answers: " + 0 + '<br>' + "Incorrect answers: " + 0 + '<br>' + "Unanswered: " + 0);
+            $("#inner-container").append("Correct answers: " + correct + '<br>' + "Incorrect answers: " + incorrect + '<br>' +
+                "Unanswered: " + unanswered);
         };
 
         $("#start-submit").on("click", displayResults);
@@ -130,3 +132,5 @@ $(document).ready(function () {
     $("#start-submit").on("click", displayQuiz);
 
 });
+
+// Need to implement timers
