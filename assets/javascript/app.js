@@ -105,6 +105,7 @@ $(document).ready(function () {
 
     var correct = 0;
     var incorrect = 0;
+    var unanswered = 0;
 
     // Build function that displays quiz
 
@@ -115,11 +116,12 @@ $(document).ready(function () {
 
         $("#start-submit").text("Submit");
         for (var i =0; i < quizArr.length; i++) {
-            $(".container").append('<p>This is question ' + i + '</p>');
+            $("#inner-container").append('<p>This is question ' + i + '</p>');
         };
 
         function displayResults() {
-            $(".container").html('<h1 id="header">Quiz has ended!</h1>');
+            $("#inner-container").html('<h1>All done!</h1>');
+            $("#inner-container").append("Correct answers: " + 0 + '<br>' + "Incorrect answers: " + 0 + '<br>' + "Unanswered: " + 0);
         };
 
         $("#start-submit").on("click", displayResults);
