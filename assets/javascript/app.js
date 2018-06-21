@@ -103,6 +103,9 @@ $(document).ready(function () {
         }
     ];
 
+    var correct = 0;
+    var incorrect = 0;
+
     // Build function that displays quiz
 
     function displayQuiz() {
@@ -113,18 +116,15 @@ $(document).ready(function () {
         $("#start-submit").text("Submit");
         for (var i =0; i < quizArr.length; i++) {
             $(".container").append('<p>This is question ' + i + '</p>');
-        }
+        };
 
         function displayResults() {
-
+            $(".container").html('<h1 id="header">Quiz has ended!</h1>');
         };
 
         $("#start-submit").on("click", displayResults);
     };
 
-
     $("#start-submit").on("click", displayQuiz);
-
-
 
 });
