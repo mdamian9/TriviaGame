@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var quizArr= [
+    var quizArr = [
         {
             question: "Who would win in a 1v1 figh to the death?",
             answers: {
@@ -103,6 +103,27 @@ $(document).ready(function () {
         }
     ];
 
-    console.log("Ready");
+    // Build function that displays quiz
+
+    function displayQuiz() {
+
+        console.log("Display")
+        var questions = [];
+
+        for (var i =0; i < quizArr.length; i++) {
+            $(".container").append('<p>This is question ' + i + '</p>');
+        }
+
+
+
+        function displayResults() {
+
+        };
+    };
+
+
+    $("#start-quiz").on("click", displayQuiz);
+
+
 
 });
