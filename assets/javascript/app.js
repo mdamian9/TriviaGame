@@ -108,32 +108,32 @@ $(document).ready(function () {
     var correct = 0;
     var incorrect = 0;
     var unanswered = 0;
-    var timer = {
-        timeCount = 180,
-        count: function () {
-            timeCount--;
-            var converted = stopwatch.timeConverter(stopwatch.timeCount);
-            $("#time").text(converted);
-        },
-        timeConverter: function (t) {
+    // var timer = {
+    //     timeCount = 180,
+    //     count: function () {
+    //         timeCount--;
+    //         var converted = stopwatch.timeConverter(stopwatch.timeCount);
+    //         $("#time").text(converted);
+    //     },
+    //     timeConverter: function (t) {
 
-            var minutes = Math.floor(t / 60);
-            var seconds = t - (minutes * 60);
+    //         var minutes = Math.floor(t / 60);
+    //         var seconds = t - (minutes * 60);
 
-            if (seconds < 10) {
-                seconds = "0" + seconds;
-            }
+    //         if (seconds < 10) {
+    //             seconds = "0" + seconds;
+    //         }
 
-            if (minutes === 0) {
-                minutes = "00";
-            }
-            else if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
+    //         if (minutes === 0) {
+    //             minutes = "00";
+    //         }
+    //         else if (minutes < 10) {
+    //             minutes = "0" + minutes;
+    //         }
 
-            return minutes + ":" + seconds;
-        }
-    };
+    //         return minutes + ":" + seconds;
+    //     }
+    // };
 
     // Build function that displays quiz
 
