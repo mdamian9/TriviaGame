@@ -103,10 +103,35 @@ $(document).ready(function () {
         }
     ];
 
+    // Initialize variables that will be used: timer is an object that has a count function that counts down 180 seconds, and a
+    // time converter function that converts time so it can be displayed properly to user
     var correct = 0;
     var incorrect = 0;
     var unanswered = 0;
-    var timeCount = 120;
+    var timer = {
+        timeCount = 180,
+        count: function () {
+
+        },
+        timeConverter: function (t) {
+
+            var minutes = Math.floor(t / 60);
+            var seconds = t - (minutes * 60);
+
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            if (minutes === 0) {
+                minutes = "00";
+            }
+            else if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+
+            return minutes + ":" + seconds;
+        }
+    };
 
     // Build function that displays quiz
 
@@ -115,33 +140,41 @@ $(document).ready(function () {
         // var answers; use an array to push HTML elements?
         // Remove start button and add 2 minute countdown
         $("#start-quiz").remove();
-        $("#inner-container").append('<h2 id = "time-left">' + "Time left: " + timeCount + '</h2>');
+        $("#quiz-container").append('<h2 id = "time-left">' + "Time left: " + '<span id="time">00:00</span>' + '</h2>');
 
         // Loop through array, create new question + append to #inner-container 
         for (var i = 0; i < quizArr.length; i++) {
             answers = [];
-            $("#inner-container").append('<p id="questions">' + (i + 1) + ". " + quizArr[i].question + '</p>');
-            
+            $("#quiz-container").append('<p id="questions">' + (i + 1) + ". " + quizArr[i].question + '</p>');
+
             // For each letter in answer object, create + append new radio button with letter / answer attached
             for (letter in quizArr[i].answers) {
-                $("#inner-container").append('<div id="answer-btn"><label><input type="radio">' + letter + ': ' + 
-                quizArr[i].answers[letter] + '<label></div>');
+                $("#quiz-container").append('<div id="answer-btn"><label><input type="radio" value="' + letter + '">' + letter + ': ' +
+                    quizArr[i].answers[letter] + '<label></div>');
             };
 
         };
 
         // Line break & create submit button
-        $("#inner-container").append('<br>' + '<button id="submit-quiz">Submit</button>');
+        $("#quiz-container").append('<br>' + '<button id="submit-quiz">Submit</button>');
 
-        // Function that show the final display containing results
+        // Function that calculates results and shows the final display containing results
         function displayResults() {
-            $("#inner-container").html('<h2 id = "all-done">All done!</h2>');
-            $("#inner-container").append("Correct answers: " + correct + '<br>' + "Incorrect answers: " + incorrect + '<br>' +
+
+            // Calculates all results (correct/incorrect/unanswered)
+            function calculate() {
+
+            };
+
+            calculate();
+
+            $("#quiz-container").html('<h2 id = "all-done">All done!</h2>');
+            $("#quiz-container").append("Correct answers: " + correct + '<br>' + "Incorrect answers: " + incorrect + '<br>' +
                 "Unanswered: " + unanswered);
         };
 
         // Set countdown 2 mins - display results when time is up, or when user clicks submit button
-        setTimeout(displayResults, 120000);
+        setTimeout(displayResults, 180000);
         $("#submit-quiz").on("click", displayResults);
     };
 
@@ -151,4 +184,5 @@ $(document).ready(function () {
 });
 
 // Timer implemented but need to display time left on screen
-// Check if question / button was unanswered / update incorrect or correct variables
+// Need to correctly implement radio buttons - check only clicked button / uncheck previous when new button is checked
+// Check if question was unanswered / unchecked (how?) & update incorrect or correct variables to display
