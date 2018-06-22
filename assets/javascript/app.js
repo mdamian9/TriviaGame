@@ -4,102 +4,102 @@ $(document).ready(function () {
         {
             question: "Who would win in a 1v1 figh to the death?",
             answers: {
-                a: "Superman",
-                b: "Goku",
-                c: "One-Punch Man",
-                d: "Floyd Mayweather"
+                A: "Superman",
+                B: "Goku",
+                C: "One-Punch Man",
+                D: "Floyd Mayweather"
             },
-            correctAnswer: "c"
+            correctAnswer: "B"
         },
         {
             question: "What is Bitcoin?",
             answers: {
-                a: "Imaginary internet money",
-                b: "A pump and dump / ponzi scam",
-                c: "Video game coins",
-                d: "Decentralized currency used worldwide"
+                A: "Imaginary internet money",
+                B: "A pump and dump / ponzi scam",
+                C: "Video game coins",
+                D: "Decentralized currency used worldwide"
             },
-            correctAnswer: "d"
+            correctAnswer: "D"
         },
         {
             question: "Where is the 2018 FIFA World Cup being held?",
             answers: {
-                a: "Mexico",
-                b: "Russia",
-                c: "North Korea",
-                d: "United States of America"
+                A: "Mexico",
+                B: "Russia",
+                C: "North Korea",
+                D: "United States of America"
             },
-            correctAnswer: "b"
+            correctAnswer: "B"
         },
         {
             question: "What is the capital of California?",
             answers: {
-                a: "Phoenix",
-                b: "Sacramento",
-                c: "Boise",
-                d: "San Diego"
+                A: "Phoenix",
+                B: "Sacramento",
+                C: "Boise",
+                D: "San Diego"
             },
-            correctAnswer: "b"
+            correctAnswer: "B"
         },
         {
             question: "How many inches are in 1 foot?",
             answers: {
-                a: "14",
-                b: "15",
-                c: "12",
-                d: "11"
+                A: "14",
+                B: "15",
+                C: "12",
+                D: "11"
             },
-            correctAnswer: "c"
+            correctAnswer: "C"
         },
         {
             question: "What color is the sky on a nice clear day?",
             answers: {
-                a: "Blue",
-                b: "Orange",
-                c: "Purple",
-                d: "Red"
+                A: "Blue",
+                B: "Orange",
+                C: "Purple",
+                D: "Red"
             },
-            correctAnswer: "a"
+            correctAnswer: "A"
         },
         {
             question: "If you travel 70 miles at 70 miles per hour, how long did it take you to travel those 70 miles?",
             answers: {
-                a: "70 minutes",
-                b: "140 minutes",
-                c: "60 minutes",
-                d: "50 minutes"
+                A: "70 minutes",
+                B: "140 minutes",
+                C: "60 minutes",
+                D: "50 minutes"
             },
-            correctAnswer: "c"
+            correctAnswer: "C"
         },
         {
             question: "Bernie Sanders is a senator from the state of:",
             answers: {
-                a: "New York",
-                b: "Vermont",
-                c: "Alabama",
-                d: "Texas"
+                A: "New York",
+                B: "Vermont",
+                C: "Alabama",
+                D: "Texas"
             },
-            correctAnswer: "b"
+            correctAnswer: "B"
         },
         {
             question: "How many FIFA World Cups does Brazil have?",
             answers: {
-                a: "3",
-                b: "6",
-                c: "2",
-                d: "5"
+                A: "3",
+                B: "6",
+                C: "2",
+                D: "5"
             },
-            correctAnswer: "d"
+            correctAnswer: "D"
         },
         {
             question: "What is 4 times 4?",
             answers: {
-                a: "17",
-                b: "23",
-                c: "16",
-                d: "22"
+                A: "17",
+                B: "23",
+                C: "16",
+                D: "22"
             },
-            correctAnswer: "c"
+            correctAnswer: "C"
         }
     ];
 
@@ -117,12 +117,17 @@ $(document).ready(function () {
         $("#start-quiz").remove();
         $("#inner-container").append('<h2 id = "time-left">' + "Time left: " + timeCount + '</h2>');
 
-        // Loop through array, create new question + append to #inner-container
+        // Loop through array, create new question + append to #inner-container 
         for (var i = 0; i < quizArr.length; i++) {
             answers = [];
             $("#inner-container").append('<p id="questions">' + (i + 1) + ". " + quizArr[i].question + '</p>');
-            $("#inner-container").append('<div id="answer-btn"><label><input type="radio">Answer<label></div>'); 
-            // need to style radio buttons and display all answers
+            
+            // For each letter in answer object, create + append new radio button with letter / answer attached
+            for (letter in quizArr[i].answers) {
+                $("#inner-container").append('<div id="answer-btn"><label><input type="radio">' + letter + ': ' + 
+                quizArr[i].answers[letter] + '<label></div>');
+            };
+
         };
 
         // Line break & create submit button
@@ -145,6 +150,5 @@ $(document).ready(function () {
 
 });
 
-// Need to implement timer
-// Check if question was unanswered / update incorrect or correct variables
-// Need to append answers of questions
+// Timer implemented but need to display time left on screen
+// Check if question / button was unanswered / update incorrect or correct variables
