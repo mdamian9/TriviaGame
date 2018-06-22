@@ -111,7 +111,9 @@ $(document).ready(function () {
     var timer = {
         timeCount = 180,
         count: function () {
-
+            timeCount--;
+            var converted = stopwatch.timeConverter(stopwatch.timeCount);
+            $("#time").text(converted);
         },
         timeConverter: function (t) {
 
@@ -161,12 +163,12 @@ $(document).ready(function () {
         // Function that calculates results and shows the final display containing results
         function displayResults() {
 
-            // Calculates all results (correct/incorrect/unanswered)
-            function calculate() {
+            // // Calculates all results (correct/incorrect/unanswered)
+            // function calculate() {
 
-            };
+            // };
 
-            calculate();
+            // calculate();
 
             $("#quiz-container").html('<h2 id = "all-done">All done!</h2>');
             $("#quiz-container").append("Correct answers: " + correct + '<br>' + "Incorrect answers: " + incorrect + '<br>' +
