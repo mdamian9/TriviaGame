@@ -106,6 +106,7 @@ $(document).ready(function () {
     var correct = 0;
     var incorrect = 0;
     var unanswered = 0;
+    var timeCount = 120;
 
     // Build function that displays quiz
 
@@ -113,12 +114,16 @@ $(document).ready(function () {
 
         // var answers; use an array to push HTML elements?
 
-        $("#start-submit").text("Submit");
+        $("#start-quiz").remove();
+        $("#inner-container").append('<h2 id = "time-left">' + "Time left: " + timeCount + '</h2>');
+
         for (var i = 0; i < quizArr.length; i++) {
             answers = [];
             $("#inner-container").append('<p id="questions">' + (i + 1) + ". " + quizArr[i].question + '</p>');
             $("#inner-container").append('<input type="radio">' + "Answer buttons"); // need to style this and display all answers
         };
+
+        setTimeout(displayResults, 120000);
 
         function displayResults() {
             $("#inner-container").html('<h1>All done!</h1>');
@@ -126,10 +131,10 @@ $(document).ready(function () {
                 "Unanswered: " + unanswered);
         };
 
-        $("#start-submit").on("click", displayResults);
+        $("#submit-quiz").on("click", displayResults);
     };
 
-    $("#start-submit").on("click", displayQuiz);
+    $("#start-quiz").on("click", displayQuiz);
 
 });
 
