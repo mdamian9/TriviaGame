@@ -28,6 +28,8 @@ body {
 }
 
 #submit-quiz {
+    margin-top: 30px;
+    margin-bottom: 30px;
     background: white;
     color: black;
     font-size: 18px;
@@ -37,6 +39,11 @@ body {
 
 #time-left {
     color: red;
+    font-family: 'Fredericka the Great', cursive;
+}
+
+#all-done {
+    color: royalblue;
     font-family: 'Fredericka the Great', cursive;
 }
 

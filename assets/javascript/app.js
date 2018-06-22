@@ -123,10 +123,12 @@ $(document).ready(function () {
             $("#inner-container").append('<input type="radio">' + "Answer buttons"); // need to style this and display all answers
         };
 
+        $("#inner-container").append('<br>' + '<button id="submit-quiz">Submit</button>')
+
         setTimeout(displayResults, 120000);
 
         function displayResults() {
-            $("#inner-container").html('<h1>All done!</h1>');
+            $("#inner-container").html('<h2 id = "all-done">All done!</h2>');
             $("#inner-container").append("Correct answers: " + correct + '<br>' + "Incorrect answers: " + incorrect + '<br>' +
                 "Unanswered: " + unanswered);
         };
