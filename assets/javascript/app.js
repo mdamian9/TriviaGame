@@ -113,31 +113,38 @@ $(document).ready(function () {
     function displayQuiz() {
 
         // var answers; use an array to push HTML elements?
-
+        // Remove start button and add 2 minute countdown
         $("#start-quiz").remove();
         $("#inner-container").append('<h2 id = "time-left">' + "Time left: " + timeCount + '</h2>');
 
+        // Loop through array, create new question + append to #inner-container
         for (var i = 0; i < quizArr.length; i++) {
             answers = [];
             $("#inner-container").append('<p id="questions">' + (i + 1) + ". " + quizArr[i].question + '</p>');
-            $("#inner-container").append('<input type="radio">' + "Answer buttons"); // need to style this and display all answers
+            $("#inner-container").append('<div id="answer-btn"><label><input type="radio">Answer<label></div>'); 
+            // need to style radio buttons and display all answers
         };
 
-        $("#inner-container").append('<br>' + '<button id="submit-quiz">Submit</button>')
+        // Line break & create submit button
+        $("#inner-container").append('<br>' + '<button id="submit-quiz">Submit</button>');
 
-        setTimeout(displayResults, 120000);
-
+        // Function that show the final display containing results
         function displayResults() {
             $("#inner-container").html('<h2 id = "all-done">All done!</h2>');
             $("#inner-container").append("Correct answers: " + correct + '<br>' + "Incorrect answers: " + incorrect + '<br>' +
                 "Unanswered: " + unanswered);
         };
 
+        // Set countdown 2 mins - display results when time is up, or when user clicks submit button
+        setTimeout(displayResults, 120000);
         $("#submit-quiz").on("click", displayResults);
     };
 
+    // When user clicks start button, create & display quiz questions / set timer
     $("#start-quiz").on("click", displayQuiz);
 
 });
 
-// Need to implement timers
+// Need to implement timer
+// Check if question was unanswered / update incorrect or correct variables
+// Need to append answers of questions
